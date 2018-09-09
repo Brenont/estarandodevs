@@ -1,22 +1,29 @@
+// Variavel do botão do form
 var botaoAdicionar = document.querySelector('#adicionar-paciente');
 
+// Determinando função de event do botão
 botaoAdicionar.addEventListener('click', function(event) {
     event.preventDefault();
 
+// Coletando form para pegar informações dele
     var form = document.querySelector('#form-adiciona');
 
+// Determinando variaveis e suas respectivas funções
     var paciente = obtemPacienteDoFormulario(form);
 
     var pacienteTr = montaTr(paciente);
 
+//Pegando tabela
     var tabela = document.querySelector('#tabela-pacientes');
-    
+
+// Criando tr na tabela
     tabela.appendChild(pacienteTr);
 
     form.reset();
     
 });
 
+//Coletando valores do formulario
 function obtemPacienteDoFormulario(form) {
 
     var paciente = {
@@ -31,6 +38,7 @@ function obtemPacienteDoFormulario(form) {
 
 }
 
+// Montando Tr
 function montaTr(paciente) {
     var pacienteTr = document.createElement('tr');
     pacienteTr.classList.add('paciente');
@@ -44,6 +52,7 @@ function montaTr(paciente) {
     return pacienteTr;
 }
 
+// Montando Td com conteudo e classe
 function montaTd(dado, classe) {
     var td = document.createElement('td');
     td.textContent = dado;
